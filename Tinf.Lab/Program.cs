@@ -1,22 +1,37 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Threading.Tasks;
-//using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-//namespace Tinf.Lab
-//{
-//    static class Program
-//    {
-//        /// <summary>
-//        /// The main entry point for the application.
-//        /// </summary>
-//        [STAThread]
-//        static void Main()
-//        {
-//            Application.EnableVisualStyles();
-//            Application.SetCompatibleTextRenderingDefault(false);
-//            Application.Run(new Form1());
-//        }
-//    }
-//}
+namespace Tinf.Lab
+{
+    public static class Program
+    {
+        public static void Main(string[] arguments)
+        {
+            uint previousHeight = 1, previousWidth = 1;
+
+            // Enable visual styles (commctrl6)
+            Application.EnableVisualStyles();
+
+            // Main loop
+            while (true)
+            {
+                // Show matrix dimensions form
+                var matrixDimensionsForm = new MatrixDimensionsForm(previousHeight, previousWidth);
+                if (matrixDimensionsForm.ShowDialog() == DialogResult.Cancel)
+                {
+                    break;
+                }
+
+                // Rembember previous matrix dimensions
+                previousHeight = matrixDimensionsForm.MatrixHeight;
+                previousWidth = matrixDimensionsForm.MatrixWidth;
+
+                // Show matrix calculations form
+                var matrixCalculationsForm = new MatrixCalculationsForm(previousHeight, previousWidth);
+                if (matrixCalculationsForm.ShowDialog() == DialogResult.Cancel)
+                {
+                    break;
+                }
+            }
+        }
+    }
+}

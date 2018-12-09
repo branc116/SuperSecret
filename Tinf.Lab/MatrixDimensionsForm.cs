@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace p02_02_z1
+namespace Tinf.Lab
 {
 	public class MatrixDimensionsForm : Form
     {

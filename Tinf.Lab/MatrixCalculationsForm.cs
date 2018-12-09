@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using Tinf.Lab;
 
-namespace p02_02_z1
+namespace Tinf.Lab
 {
 	public class MatrixCalculationsForm : Form
     {

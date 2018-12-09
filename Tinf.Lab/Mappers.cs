@@ -43,14 +43,10 @@ namespace Tinf.Lab
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
                 _matrixDataGridView.Columns.Add(column);
             }
-            
+
             for (uint i = 1; i <= vm.MatrixHeight; ++i)
             {
                 var rowIndex = _matrixDataGridView.Rows.Add(vm.MatricaVjeojatnost[(int)i - 1].Select(j => j.ToString()).Cast<object>().ToArray());
-                //var row = new DataGridViewRow();
-                //row.Cells.Add()
-                //row.HeaderCell.Value = $"   x{i}";
-                //var j = 0;
                 var row = _matrixDataGridView.Rows[rowIndex];
                 row.HeaderCell.Value = $"   x{i}";
                 foreach (DataGridViewCell cell in row.Cells)
@@ -104,7 +100,7 @@ namespace Tinf.Lab
         public static IEnumerable<double> Add(this IEnumerable<double> v1, List<double> v2)
         {
             var i = 0;
-            foreach(var d in v1)
+            foreach (var d in v1)
             {
                 yield return d + v2[i];
                 i++;
